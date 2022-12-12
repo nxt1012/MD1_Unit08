@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Exercise 02</title>
+</head>
+<body>
+<script>
+  let x = [-3, 5, 1, 3, 2, 10];
+  document.write("Chuỗi gốc là:"+ "<br>" + x + "<br>")
+  let y = [];
+  for(let i = 0; i < x.length; i++){
+    y[x.length-i-1] = x[i];
+  }
+  x = y;
+
+document.write("Chuỗi sau khi đảo ngược là:"+ "<br>" +x);
+</script>
+</body>
+</html>

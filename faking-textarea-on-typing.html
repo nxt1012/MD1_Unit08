@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="printText()">
+<h1>Type anything slowly</h1>
+<textarea name="textarea" id="fakeTextarea" cols="30" rows="10"></textarea>
+<script>
+    let phrase = "You're so beautiful!"
+    let phraseToInsert = "";
+
+
+    function printText() {
+        let text = document.getElementById('fakeTextarea').value;
+
+        for (let i =0 ; i<text.length;i++){
+            console.log(phrase.charAt(i))
+            phraseToInsert+= phrase.charAt(i);
+            if(i>=20){
+                break;
+            }
+        }
+        document.getElementById("fakeTextarea").value = phraseToInsert;
+        phraseToInsert ="";
+        setTimeout(printText,1000)
+    }
+</script>
+</body>
+</html>

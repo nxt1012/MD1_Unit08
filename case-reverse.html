@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case Reverse</title>
+</head>
+<body>
+<script>
+  let userInput = prompt("Nhập vào một chuỗi text:".toString());
+  alert("Chữ hoa sẽ đổi thành chữ thường và ngược lại.")
+  let tempArray = [];
+  for (let i = 0; i < userInput.length; i++){
+    if ( userInput[i] == userInput[i].toLowerCase()){
+      //=> lowercase
+      tempArray.push(userInput[i].toUpperCase());
+    } else tempArray.push(userInput[i].toLowerCase());
+  }
+  document.write(tempArray.join(""Hom));
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+</head>
+<body>
+<h3>Nhập từ tiếng Anh cần tra</h3>
+<input id="userInput" type="text">
+<button onclick="search()">Tra cứu</button>
+<p id="result"></p>
+<script>
+  let eng = ["pencil", "bicycle", "chalk", "pen", "hair"];
+  let vie = ["bút chì", "xe đạp", "phấn", "bút mực", "tóc"];
+  let userInput;
+  function search(){
+    userInput = document.getElementById("userInput").value.toString();
+    let index = eng.indexOf(userInput)
+    if(index === -1 ){
+      document.getElementById("result").innerHTML = `Không tìm thấy từ "${userInput}" trong cơ sở dữ liệu.`;
+    } else document.getElementById("result").innerHTML = vie[index];
+  }
+</script>
+</body>
+</html>

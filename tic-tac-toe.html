@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+  <style>
+    table, td, th, tr {
+      border-collapse: collapse;
+      border: 1px solid black;
+    }
+    td, th {
+      width: 50px;
+      height: 50px;
+    }
+    p {
+      text-align: center;
+      font-size: 50px;
+      margin: 0 0 0 0;
+    }
+  </style>
+</head>
+<body>
+<div id="table"></div>
+<p id="result"></p>
+<script>
+  let table = "<table><tr>";
+  let array = [...Array(3)].map(e => Array(3));
+  for (let i = 0; i < 3; i++){
+    for (let j = 0; j < 3; j++){
+      table += `<td><p id="c${i}${j}" onclick="check(this.id)">.</p></td>`
+      array[i][j] = ".";
+    } table += "</tr><tr>"
+  } table += "</tr></table>"
+document.getElementById("table").innerHTML = table;
+  let status = true;
+  function check(e){
+//khi ấn vào 1 ô, gọi hàm check
+//nếu innerHTML = . => nếu status = false => đổi . thành X, đổi status thành true
+//nếu status = true thì đổi . thành O đổi status thành false
+//nếu innerHTML = O hoặc X thì không làm gì
+    let cellStatus = document.getElementById(e);
+    let location = e.toString();
+    if (cellStatus.innerHTML === "."){
+      if (status === false){
+        cellStatus.innerHTML = "X";
+        array[location[1]][location[2]] = "X";
+        status = true;
+      } else {
+        cellStatus.innerHTML = "O";
+        array[location[1]][location[2]] = "O";
+        status = false;
+      }
+      win();
+      console.log(array);
+    }
+  }
+  function win() {
+    console.log(array[2][2])
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        if ((array[i][0] === array[i][1]) && (array[i][1] === array[i][2]) && (array[i][1] !== ".")) {
+          document.getElementById("result").innerHTML = `${array[i][1]} thắng!`
+        } else if ((array[0][j] === array[1][j]) && (array[1][j] === array[2][j]) && (array[1][j] !== ".")) {
+          document.getElementById("result").innerHTML = `${array[1][j]} thắng!`
+        }
+      }
+    }
+    if ((array[0][0] === array[1][1]) && (array[1][1] === array[2][2]) && (array[1][1] !== ".")) {
+      document.getElementById("result").innerHTML = `${array[1][1]} thắng!`
+    } else if ((array[0][2] === array[1][1]) && (array[1][1] === array[2][0]) && (array[1][1] !== ".")) {
+      document.getElementById("result").innerHTML = `${array[1][1]} thắng!`
+    }
+  }
+</script>
+</body>
+</html>

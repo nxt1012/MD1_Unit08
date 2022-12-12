@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let userInput = prompt("Enter a number: ");
+    alert(" '-' will be put in between 2 even numbers");
+    let ui = userInput.toString();
+    let result = "";
+    for (let i = 0; i < ui.length ; i++){
+        if (ui[i] % 2 == 0 && ui[i+1] % 2 == 0){
+            result = result + ui[i] + "-";
+        } else result += ui[i];
+    }
+    document.write(result);
+</script>
+</body>
+</html>
