@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = ['c', 1, 'a', 13, 'z', 7, 'h']
+  let count = 0;
+  for (let i = 0; i < arr.length; i++){
+    if (Number.isInteger(arr[i]) === true){
+      count++
+    }
+  }
+  document.write(`Có ${count} số trong dãy`)
+</script>
+</body>
+</html>

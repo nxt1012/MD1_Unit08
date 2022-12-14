@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="userInput">
+<button onclick="inputString()">Input String</button>
+<button onclick="compareInput()">Compare</button>
+<p id="result"></p>
+<script>
+  let str1 ="";
+  let str2 ="";
+  function inputString() {
+    if (str1 === ""){
+      str1 = document.getElementById("userInput").value;
+      document.getElementById("userInput").value = "";
+    } else {
+      str2 = document.getElementById("userInput").value;
+      document.getElementById("userInput").value = "";
+    }
+  }
+  function compareInput(){
+    if( str1 === str2){
+      document.getElementById("result").innerHTML = "Hai chuỗi vừa nhập vào giống nhau";
+    } else document.getElementById("result").innerHTML = "Hai chuỗi vừa nhập vào không giống nhau";
+  }
+</script>
+</body>
+</html>

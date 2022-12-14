@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = new Array(10);
+  for (let i = 0; i < arr.length; i++){
+      arr[i] = Math.floor(Math.random()*100-50)
+  }
+  document.write(`Mảng ban đầu là ${arr} <br>`)
+  let count = 0;
+  let minus = 0;
+  for(let i = 0; i < arr.length; i++){
+    if (arr[i] >= 10) count++
+    if (arr[i] <= 0) minus++
+  }
+  document.writeln(`Có ${count} phần tử trong mảng có giá trị lớn hơn hoặc bằng 10<br>`)
+  document.writeln(`Có ${minus} số nguyên âm ở trong mảng<br>`)
+  let max = arr[0];
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] > max) max = arr[i]
+  }
+  document.writeln(`Phần tử có giá trị lớn nhất trong mảng là ${max}`)
+</script>
+</body>
+</html>

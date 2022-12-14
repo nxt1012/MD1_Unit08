@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="userInput">Nhập vào một số nguyên để kiểm tra</label>
+<input type="text" id="userInput">
+<button onclick="isInArrayOrNot()">Check</button>
+<button onclick="removeNumber()">Remove from Array</button>
+<button onclick="sortArray()">Sort Array</button>
+<p id="result"></p>
+<script>
+  let arr = new Array(10);
+  let input;
+  for (let i = 0; i < arr.length; i++){
+    arr[i] = Math.floor(Math.random()*100-50)
+  }
+  function isInArrayOrNot(){
+    input = document.getElementById("userInput");
+    if( arr.indexOf(+input.value) === -1){
+      document.getElementById("result").innerHTML =`${+input.value} is not in the array`
+    } else {
+      document.getElementById("result").innerHTML =`${+input.value} is in the array`
+    }
+  }
+  function removeNumber(){
+    arr.splice(arr.indexOf(+document.getElementById("userInput").value), 1);
+    alert(arr)
+  }
+  function sortArray(){
+    document.getElementById("result").innerHTML = `Mảng gốc là ${arr}<br>`
+    arr.sort((a, b) =>{ return (b - a)})
+    document.getElementById("result").innerHTML += `Mảng sau khi sắp xếp theo thứ tự giảm dần là ${arr}`
+
+  }
+</script>
+</body>
+</html>

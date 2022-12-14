@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="userInput">Nhập số vào mảng</label>
+<input type="text" id="userInput">
+<button id="myBtn" onclick="inputNumberIntoArray()">Nhập số</button>
+<button onclick="cal()">Tỉnh toán</button>
+<p id="result"></p>
+<script>
+  let input = document.getElementById("userInput")
+  let arr = [];
+  input.addEventListener("keypress", function(event){
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("myBtn").click()
+    }
+  });
+  function inputNumberIntoArray() {
+    arr.push(+input.value);
+    input.value = "";
+  }
+  function cal(){
+    let total = arr.reduce(myFunc)
+    document.getElementById("result").innerHTML = `Giá trị lớn nhất trong mảng là ${Math.max(...arr)} <br> Giá trị trung bình của mảng là ${total/arr.length} <br> Mảng ban đầu là ${arr} <br> Mảng sau khi nghịch đảo là ${arr.reverse()}`
+  }
+  function myFunc(total, num) {
+    return total + num;
+  }
+</script>
+</body>
+</html>

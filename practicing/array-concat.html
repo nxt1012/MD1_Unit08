@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+  <style>
+    p {
+      height: 0.5em;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+<p id="message"></p>
+<label for="numberInput">Nhập số vào ô</label>
+<input id="numberInput" type="text">
+<button id="myBtn" onclick="inputToArray()">Nhập số</button>
+<button onclick="concatArray()" >Nối hai mảng</button>
+<p id="result"></p>
+<script>
+  let arrA = new Array(10);
+  let arrB = new Array(10);
+  let count = 0;
+  let input = document.getElementById("numberInput")
+  let message = document.getElementById("message")
+  input.addEventListener("keypress", function(event){
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("myBtn").click()
+    }
+  });
+  function inputToArray() {
+        if (count < 10) {
+        arrA[count] = +input.value;
+        message.innerHTML = "Số được đưa vào mảng a"
+        count++;
+        input.value = '';
+      } else if (count < 20) {
+        arrB[count - 10] = +input.value;
+        message.innerHTML = "Số được đưa vào mảng b"
+
+          count++
+        input.value = '';
+      } else {
+        message.innerHTML = "Hai mảng đã đầy"
+        }
+    console.log (arrA, arrB)
+    }
+  function concatArray(){
+    let arrC = arrA.concat(arrB);
+    document.getElementById("result").innerHTML = `Mảng C được tạo thành từ việc nối mảng a với mảng b là : ${arrC}`
+  }
+
+</script>
+</body>
+</html>
